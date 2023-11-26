@@ -14,7 +14,6 @@ const nextTodoId = (todos) => {
 };
 
 const reducer = (state = initialState, action) => {
-  const { todoId, color } = action.payload;
   switch (action.type) {
     case ADDED:
       return [
@@ -37,6 +36,7 @@ const reducer = (state = initialState, action) => {
       });
 
     case COLORSELECTED:
+      const { todoId, color } = action.payload;
       return state.map((todo) => {
         if (todo.id !== todoId) {
           return todo;

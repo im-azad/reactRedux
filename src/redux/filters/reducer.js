@@ -2,7 +2,6 @@ import { COLORCHANGED, STATUSCHANGED } from "./actionTypes";
 import initialState from "./initialState";
 
 const reducer = (state = initialState, action) => {
-  const { color, changeType } = action.payload;
   switch (action.type) {
     case STATUSCHANGED:
       return {
@@ -11,6 +10,7 @@ const reducer = (state = initialState, action) => {
       };
 
     case COLORCHANGED:
+      const { color, changeType } = action.payload;
       switch (changeType) {
         case "added":
           return {
