@@ -3,13 +3,12 @@ import Todo from "./Todo";
 
 function TodoList() {
   const todos = useSelector((state) => state.todos);
-  console.log("tod", todos);
+
   return (
     <div className="mt-2 text-gray-700 text-sm max-h-[300px] overflow-y-auto">
-      {todos.map((todo)=> (
-        <Todo todo={todo} key={todo.id}/>
+      {todos.map((todo) => (
+        <Todo todo={todo} key={todo.id} />
       ))}
-   
     </div>
   );
 }
