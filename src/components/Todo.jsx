@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useDispatch } from "react-redux";
 import cancelImage from "../assets/images/cancel.png";
-import { colorSelected, deleted, toggled } from "../redux/todos/action";
+import { colorSelected, deleted } from "../redux/todos/action";
+import updateStatus from "../redux/todos/thunk/updateStatus";
 function Todo({ todo }) {
   const dispatch = useDispatch();
 
   const { text, id, completed, color } = todo;
 
   const handleStatusChange = (todoId) => {
-    dispatch(toggled(todoId));
+    dispatch(updateStatus(todoId, completed));
   };
 
   const handleColorChange = (todoId, color) => {
@@ -41,7 +42,9 @@ function Todo({ todo }) {
         )}
       </div>
 
-      <div className={`select-none flex-1 ${completed && "line-through"}`}>{text}</div>
+      <div className={`select-none flex-1 ${completed && "line-through"}`}>
+        {text}
+      </div>
 
       <div
         onClick={() => handleColorChange(id, "green")}
