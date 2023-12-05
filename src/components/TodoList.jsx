@@ -10,7 +10,7 @@ function TodoList() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchTodos);
-  }, []);
+  }, [dispatch]);
 
   const filterByStatus = (todo) => {
     const { status } = filters;
